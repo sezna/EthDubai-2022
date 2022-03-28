@@ -18,7 +18,7 @@ contract Token {
 ```
 
 Note:
-Here's another cool thing solidity does -- reverts in your control flow. We want to keep that.
+Here's another cool thing solidity does -- reverts in your control flow. We want to keep that. Do one thing well, revert otherwise. That's the smart contract way, right?
 
 
 ```rust
@@ -43,13 +43,13 @@ impl Token for Contract {
 ```
 
 Note:
-note on naughty, mapping, revert is like panic! via Revertable trait which controls how it shows up in a revert
+note on revert is like panic! via Revertable trait which controls how it shows up in a revert
 Should you want to revert, you don't need a return type since that aborts the control flow. However, you are perfectly free to also do this:
 
 
 ```rust
 contract;
-use std::chain::Address;
+use std::chain::{balance, Address};
 
 struct NotEnoughFunds { 
   requested: u64, 
@@ -57,16 +57,17 @@ struct NotEnoughFunds {
 }
 
 impl Token for Contract {
-  naughty fn transfer(to: Address, amount: u64) 
+  #[state(read, write)]
+  fn transfer(to: Address, amount: u64) 
     -> Result<(), NotEnoughFunds> {
-        if balance < amount { 
+        if balance() < amount { 
           return Err(NotEnoughFunds { 
            requested: amount,
-           available: contract.balances[msg.sender] 
+           available: storage.balances[msg.sender] 
           });
         }
-        contract.balances[msg.sender] -= amount;
-        contract.balances[to] += amount;
+        storage.balances[msg.sender] -= amount;
+        storage.balances[to] += amount;
         // ...
   }
 }

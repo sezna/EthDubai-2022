@@ -85,11 +85,12 @@ let seller: Address = Address(
 );
 
 abi Purchase {
-  view fn abort();
+  fn abort();
 } 
 
 impl Purchase for Contract {
-  view fn abort() {
+  #[state(read)]
+  fn abort() {
     assert(context.caller_id == seller);
     abort_inner()
   }

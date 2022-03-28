@@ -40,3 +40,4 @@ We have a few reasons behind this design decision. For one, remember that tweet?
 We see no reason why that shouldn't be a language pattern, so, to access state variables, we use the `storage` keyword.
 If you have been following Sway for a while, you'll notice we now use the `storage` keyword to denote storage access. 
 Additionally, you'll notice we have an annotation system similar to rust. This is extensible. We use it to provide compile-time checks of function impurity and state access patterns and anti-patterns.
+
