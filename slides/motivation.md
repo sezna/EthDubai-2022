@@ -18,7 +18,6 @@ Note:
 
 ----
 
-![](https://www.chromium.org/Home/chromium-security/memory-safety/piechart.png)
 
 > Around 70% of our high severity security bugs are memory unsafety problems (that is, mistakes with C/C++ pointers). Half of those are use-after-free bugs.
 
@@ -32,3 +31,7 @@ A lot of people wonder why we don't have specific features of Rust, like async/a
 
 Memory safety bugs are not nearly as much of an issue in the smart contract world. But, we want to do what Rust did -- eliminate entire classes of bugs by virtue of design choices and static analysis. Native assets are a part of that, as are our storage paradigms, tooling story, and everything else.
 
+
+----
+
+![](https://www.chromium.org/Home/chromium-security/memory-safety/piechart.png)
