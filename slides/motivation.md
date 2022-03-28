@@ -13,13 +13,16 @@ Note:
 
 
 Note:
-TODO get image from chromium for above
   The programming model is similar to Ethereum, although we allow for multiple native assets. This removes the error class of bugs in your token code entirely.
 
 
 ----
 
-https://www.chromium.org/Home/chromium-security/memory-safety/
+![](https://www.chromium.org/Home/chromium-security/memory-safety/piechart.png)
+
+> Around 70% of our high severity security bugs are memory unsafety problems (that is, mistakes with C/C++ pointers). Half of those are use-after-free bugs.
+
+(https://www.chromium.org/Home/chromium-security/memory-safety/)
 
 
 Note:
