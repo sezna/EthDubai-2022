@@ -30,7 +30,7 @@ trait Foo<T, E>
 
 Note: 
 We do fully support generic types and traits in the same way Rust does.
-All of the solidity address, contract, and hash types are wrapper types around byte32 with their own APIs in the standard library.
+All of the solidity address, contract, and hash types are wrapper types around b256 with their own APIs in the standard library.
 addresses are 32 bytes, which is what addresses are going to be very soon due to "address extension" changes
 
 Bytes and addresses can be declared with literal syntax.
@@ -38,7 +38,7 @@ Bytes and addresses can be declared with literal syntax.
 ----
 
 ```rust
-let x: byte32 =
+let x: b256 =
  0xAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF; 
 
 let y: byte = 0xAF;
